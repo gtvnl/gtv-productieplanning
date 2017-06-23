@@ -1,0 +1,35 @@
+@import "foundation_and_overrides";
+
+body {
+  font-family: 'Oxygen';
+  font-size: 18px;
+  line-height: 1.42857143;
+  color: #555555;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito';
+}
+
+.breadcrumb {
+  margin-left: .5rem;
+}
+
+// TODO: This is a hack to get Foundation 6 styles on simple_form
+// elements with errors.
+.input.error {
+  label {
+    @extend .is-invalid-label;
+  }
+
+  input,
+  textarea,
+  select {
+    @extend .is-invalid-input;
+  }
+
+  small.error {
+    @extend .form-error;
+    @extend .is-visible;
+  }
+}

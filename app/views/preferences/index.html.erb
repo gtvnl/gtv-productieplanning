@@ -1,0 +1,42 @@
+<!-- Page header -->
+<%= content_for :page_title do %>
+  <h1 class="text-center">Instellingen</h1>
+<% end %>
+
+<div class="row large-3 columns">
+  <% @preferences.each do |preference| %>
+    <%= simple_form_for(preference) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="row">
+        <div class="large-1 columns">
+          <label for="middle-label" class="text-right middle"><%= preference.setting %></label>
+        </div>
+
+        <div class="large-8 columns">
+          <div class="input-group">
+            <span class="input-group-label" style="width:50px;">
+            <% if preference.setting == "Uurtarief" %>
+              &euro;
+            <% else %>
+              %
+            <% end %>
+            </span>
+
+            <input class="input-group-field" type="number" name="preference[value]" id="preference_value" value="<%= preference.value %>">
+
+            <div class="input-group-button">
+              <%= f.button :button, class: "button primary", data: { disable_with: "<i class='fi-clock'></i>" } do %>
+                <i class="fi-check"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    <% end %>
+  <% end %>
+</div>

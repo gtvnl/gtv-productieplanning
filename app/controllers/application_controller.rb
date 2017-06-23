@@ -1,0 +1,12 @@
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+
+  # before_action :authenticate_user!
+
+  # protected
+  # def safe_params
+  #   params.except(:host, :port, :protocol).permit!
+  # end
+  # helper_method :safe_params
+
+end

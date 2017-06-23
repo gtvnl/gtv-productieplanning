@@ -1,0 +1,49 @@
+<div class="top-bar">
+  <div class="top-bar-title">
+    <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+      <button class="menu-icon dark" type="button" data-toggle></button>
+    </span>
+    <div>
+      <%= image_tag("gtv.png", size: "50x10", alt: "GTV") %>
+      <strong>ProductiePlanning</strong>
+    </div>
+  </div>
+<!-- Left -->
+  <div id="responsive-menu">
+    <div class="top-bar-left">
+      <!-- <ul class="dropdown menu" data-dropdown-menu>
+        <li><%= link_to 'offertes', '#' %></li>
+        <li><%= link_to 'calculaties', '#' %></li>
+        <li>
+          <%= link_to 'fabrikaten', '#' %>
+          <ul class="menu vertical">
+              <li><%= link_to 'systemen', '#' %></li>
+          </ul>
+        </li>
+        <li><%= link_to 'artikelen', '#' %></li>
+      </ul> -->
+    </div>
+    <!-- Right -->
+    <div class="top-bar-right">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <% if user_signed_in? %>
+        <li>
+          <%= link_to preferences_path do %>
+            <i style='font-size:24px' class="fi-torso"></i> <%= current_user.email %>
+          <% end %>
+          <ul class="menu vertical">
+            <li>
+              <%= link_to preferences_path do %>
+                <i style='font-size:24px' class="fi-widget"></i> voorkeuren
+              <% end %>
+            </li>
+            <li>
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+            </li>
+          </ul>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
